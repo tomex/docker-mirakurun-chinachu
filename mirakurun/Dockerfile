@@ -42,7 +42,12 @@ RUN set -x \
 	&& cd /tmp/ \
 	&& wget http://plex-net.co.jp/plex/px-s1ud/PX-S1UD_driver_Ver.1.0.1.zip \
 	&& unzip PX-S1UD_driver_Ver.1.0.1.zip \
+	&& mkdir -p /usr/local/lib/firmware \
+	&& cp PX-S1UD_driver_Ver.1.0.1/x64/amd64/isdbt_rio.inp /usr/local/lib/firmware/ \
 	&& cp PX-S1UD_driver_Ver.1.0.1/x64/amd64/isdbt_rio.inp /lib/firmware/ \
+	&& mkdir -p /etc/ld.so.conf.d/ \
+	&& echo '/usr/local/lib' >> /etc/ld.so.conf.d/local.conf \
+	&& echo 'smsusb' >> /etc/modules \
 	# other setting
 	&& adduser root video \
 	# npm
