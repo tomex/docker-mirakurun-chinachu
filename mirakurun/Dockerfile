@@ -35,6 +35,8 @@ RUN set -x \
 		eudev-dev \
 		libevent-dev \
 		libusb-dev \
+		libtool\
+		flex\
 	\
 	# firmware
 	&& cd /tmp/ \
